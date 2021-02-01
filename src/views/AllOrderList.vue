@@ -32,8 +32,8 @@ export default {
         { text: '預計拍攝日期', value: 'date', sortable: true },
         { text: '攝影師', value: 'photographer', sortable: false },
         { text: '使用者', value: 'name', sortable: false },
-        { text: '付款狀態', value: 'paid', sortable: false },
-        { text: '', value: 'messages_othersum' }
+        { text: '付款狀態', value: 'paid', sortable: false }
+        // { text: '', value: 'messages_othersum' }
         // { text: '訂單狀態', value: 'state', sortable: false }
       ],
       orders: []

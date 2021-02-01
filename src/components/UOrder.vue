@@ -29,8 +29,8 @@ export default {
         { text: '拍攝項目', value: 'project', sortable: false },
         { text: '預計拍攝日期', value: 'date', sortable: true },
         { text: '攝影師', value: 'photographer', sortable: false },
-        { text: '訂單狀態', value: 'state', sortable: false },
-        { text: '', value: 'messages_othersum', sortable: false }
+        { text: '訂單狀態', value: 'state', sortable: false }
+        // { text: '', value: 'messages_othersum', sortable: false }
       ],
       orders: [],
       show: false
