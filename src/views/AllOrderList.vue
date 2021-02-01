@@ -8,11 +8,11 @@
         template(v-slot:item.paid='{ item }')
           v-switch(v-if="!item.paid" :value="check(item.paid)" color="rgb(103, 125, 53)" disabled inset)
           v-switch(v-if="item.paid" :value="check(item.paid)" color="rgb(103, 125, 53)" disabled input-value="true" inset)
-        template(v-slot:item.messages_othersum='{ item }')
-          v-badge(value color="#cd5c5c" dot v-if='item.messages[item.messages.length-1].user_account.includes("##")')
-            v-icon mdi-message-processing-outline
-          v-badge( color="#cd5c5c" dot v-if='!item.messages[item.messages.length-1].user_account.includes("##")')
-            v-icon mdi-message-processing-outline
+        //- template(v-slot:item.messages_othersum='{ item }')
+        //-   v-badge(value color="#cd5c5c" dot v-if='item.messages[item.messages.length-1].user_account.includes("##")')
+        //-     v-icon mdi-message-processing-outline
+        //-   v-badge( color="#cd5c5c" dot v-if='!item.messages[item.messages.length-1].user_account.includes("##")')
+        //-     v-icon mdi-message-processing-outline
 </template>
 
 <script>
@@ -72,114 +72,114 @@ export default {
               arry[i].orders[j].name = arry[i].name
               arry[i].orders[j].email = arry[i].email
               arry[i].orders[j].phoneNumber = arry[i].phoneNumber
-              this.axios.get(process.env.VUE_APP_API + '/messages/' + arry[i].orders[j]._id + '/orderSum')
-                .then(res => {
-                  if (res.data.success) {
-                    arry[i].orders[j].messages_sum = res.data.result
-                  } else {
-                    this.$swal({
-                      icon: 'error',
-                      title: '錯誤',
-                      text: res.data.message
-                    })
-                  }
-                })
-                .catch(err => {
-                  if (err.response.data.message === '未登入') {
-                    // 登出
-                    this.$store.commit('logout')
-                    // 導回首頁
-                    if (this.$route.path !== '/login') {
-                      this.$router.push('/login')
-                    }
-                  }
-                  this.$swal({
-                    icon: 'error',
-                    title: '錯誤',
-                    text: err.response.data.message
-                  })
-                })
-              this.axios.get(process.env.VUE_APP_API + '/messages/' + arry[i].orders[j]._id + '/orderUserSum')
-                .then(res => {
-                  if (res.data.success) {
-                    arry[i].orders[j].messages_usersum = res.data.result
-                  } else {
-                    this.$swal({
-                      icon: 'error',
-                      title: '錯誤',
-                      text: res.data.message
-                    })
-                  }
-                })
-                .catch(err => {
-                  if (err.response.data.message === '未登入') {
-                    // 登出
-                    this.$store.commit('logout')
-                    // 導回首頁
-                    if (this.$route.path !== '/login') {
-                      this.$router.push('/login')
-                    }
-                  }
-                  this.$swal({
-                    icon: 'error',
-                    title: '錯誤',
-                    text: err.response.data.message
-                  })
-                })
-              this.axios.get(process.env.VUE_APP_API + '/messages/' + arry[i].orders[j]._id + '/orderWebmasterSum')
-                .then(res => {
-                  if (res.data.success) {
-                    arry[i].orders[j].messages_othersum = res.data.result
-                  } else {
-                    this.$swal({
-                      icon: 'error',
-                      title: '錯誤',
-                      text: res.data.message
-                    })
-                  }
-                })
-                .catch(err => {
-                  if (err.response.data.message === '未登入') {
-                    // 登出
-                    this.$store.commit('logout')
-                    // 導回首頁
-                    if (this.$route.path !== '/login') {
-                      this.$router.push('/login')
-                    }
-                  }
-                  this.$swal({
-                    icon: 'error',
-                    title: '錯誤',
-                    text: err.response.data.message
-                  })
-                })
-              this.axios.get(process.env.VUE_APP_API + '/messages/' + arry[i].orders[j]._id)
-                .then(res => {
-                  if (res.data.success) {
-                    arry[i].orders[j].messages = res.data.result
-                  } else {
-                    this.$swal({
-                      icon: 'error',
-                      title: '錯誤',
-                      text: res.data.message
-                    })
-                  }
-                })
-                .catch(err => {
-                  if (err.response.data.message === '未登入') {
-                    // 登出
-                    this.$store.commit('logout')
-                    // 導回首頁
-                    if (this.$route.path !== '/login') {
-                      this.$router.push('/login')
-                    }
-                  }
-                  this.$swal({
-                    icon: 'error',
-                    title: '錯誤',
-                    text: err.response.data.message
-                  })
-                })
+              // this.axios.get(process.env.VUE_APP_API + '/messages/' + arry[i].orders[j]._id + '/orderSum')
+              //   .then(res => {
+              //     if (res.data.success) {
+              //       arry[i].orders[j].messages_sum = res.data.result
+              //     } else {
+              //       this.$swal({
+              //         icon: 'error',
+              //         title: '錯誤',
+              //         text: res.data.message
+              //       })
+              //     }
+              //   })
+              //   .catch(err => {
+              //     if (err.response.data.message === '未登入') {
+              //       // 登出
+              //       this.$store.commit('logout')
+              //       // 導回首頁
+              //       if (this.$route.path !== '/login') {
+              //         this.$router.push('/login')
+              //       }
+              //     }
+              //     this.$swal({
+              //       icon: 'error',
+              //       title: '錯誤',
+              //       text: err.response.data.message
+              //     })
+              //   })
+              // this.axios.get(process.env.VUE_APP_API + '/messages/' + arry[i].orders[j]._id + '/orderUserSum')
+              //   .then(res => {
+              //     if (res.data.success) {
+              //       arry[i].orders[j].messages_usersum = res.data.result
+              //     } else {
+              //       this.$swal({
+              //         icon: 'error',
+              //         title: '錯誤',
+              //         text: res.data.message
+              //       })
+              //     }
+              //   })
+              //   .catch(err => {
+              //     if (err.response.data.message === '未登入') {
+              //       // 登出
+              //       this.$store.commit('logout')
+              //       // 導回首頁
+              //       if (this.$route.path !== '/login') {
+              //         this.$router.push('/login')
+              //       }
+              //     }
+              //     this.$swal({
+              //       icon: 'error',
+              //       title: '錯誤',
+              //       text: err.response.data.message
+              //     })
+              //   })
+              // this.axios.get(process.env.VUE_APP_API + '/messages/' + arry[i].orders[j]._id + '/orderWebmasterSum')
+              //   .then(res => {
+              //     if (res.data.success) {
+              //       arry[i].orders[j].messages_othersum = res.data.result
+              //     } else {
+              //       this.$swal({
+              //         icon: 'error',
+              //         title: '錯誤',
+              //         text: res.data.message
+              //       })
+              //     }
+              //   })
+              //   .catch(err => {
+              //     if (err.response.data.message === '未登入') {
+              //       // 登出
+              //       this.$store.commit('logout')
+              //       // 導回首頁
+              //       if (this.$route.path !== '/login') {
+              //         this.$router.push('/login')
+              //       }
+              //     }
+              //     this.$swal({
+              //       icon: 'error',
+              //       title: '錯誤',
+              //       text: err.response.data.message
+              //     })
+              //   })
+              // this.axios.get(process.env.VUE_APP_API + '/messages/' + arry[i].orders[j]._id)
+              //   .then(res => {
+              //     if (res.data.success) {
+              //       arry[i].orders[j].messages = res.data.result
+              //     } else {
+              //       this.$swal({
+              //         icon: 'error',
+              //         title: '錯誤',
+              //         text: res.data.message
+              //       })
+              //     }
+              //   })
+              //   .catch(err => {
+              //     if (err.response.data.message === '未登入') {
+              //       // 登出
+              //       this.$store.commit('logout')
+              //       // 導回首頁
+              //       if (this.$route.path !== '/login') {
+              //         this.$router.push('/login')
+              //       }
+              //     }
+              //     this.$swal({
+              //       icon: 'error',
+              //       title: '錯誤',
+              //       text: err.response.data.message
+              //     })
+              //   })
             }
           }
           console.log(this.orders)

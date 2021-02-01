@@ -8,11 +8,11 @@
         template(v-slot:item.state='{ item }')
           v-switch(v-if="!item.state" :value="check(item.state)" disabled inset)
           v-switch(v-if="item.state" :value="check(item.state)" color="rgb(103, 125, 53)" input-value="true" disabled inset)
-        template(v-slot:item.messages_othersum='{ item }')
-          v-badge(value color="#cd5c5c" dot v-if='!item.messages[item.messages.length-1].user_account.includes("##")')
-            v-icon mdi-message-processing-outline
-          v-badge( color="#cd5c5c" dot v-if='item.messages[item.messages.length-1].user_account.includes("##")')
-            v-icon mdi-message-processing-outline
+        //- template(v-slot:item.messages_othersum='{ item }')
+        //-   v-badge(value color="#cd5c5c" dot v-if='!item.messages[item.messages.length-1].user_account.includes("##")')
+        //-     v-icon mdi-message-processing-outline
+        //-   v-badge( color="#cd5c5c" dot v-if='item.messages[item.messages.length-1].user_account.includes("##")')
+        //-     v-icon mdi-message-processing-outline
 </template>
 <script>
 export default {
@@ -61,32 +61,32 @@ export default {
         if (res.data.success) {
           console.log(res.data.result)
           this.orders = res.data.result.orders.reverse()
-          for (let i = 0; i < this.orders.length; i++) {
-            this.axios.get(process.env.VUE_APP_API + '/messages/' + this.orders[i]._id)
-              .then(res => {
-                if (res.data.success) {
-                  this.orders[i].messages = res.data.result
-                }
-              })
-            this.axios.get(process.env.VUE_APP_API + '/messages/' + this.orders[i]._id + '/orderSum')
-              .then(res => {
-                if (res.data.success) {
-                  this.orders[i].messages_sum = res.data.result
-                }
-              })
-            this.axios.get(process.env.VUE_APP_API + '/messages/' + this.orders[i]._id + '/orderUserSum')
-              .then(res => {
-                if (res.data.success) {
-                  this.orders[i].messages_usersum = res.data.result
-                }
-              })
-            this.axios.get(process.env.VUE_APP_API + '/messages/' + this.orders[i]._id + '/orderWebmasterSum')
-              .then(res => {
-                if (res.data.success) {
-                  this.orders[i].messages_othersum = res.data.result
-                }
-              })
-          }
+          // for (let i = 0; i < this.orders.length; i++) {
+          //   this.axios.get(process.env.VUE_APP_API + '/messages/' + this.orders[i]._id)
+          //     .then(res => {
+          //       if (res.data.success) {
+          //         this.orders[i].messages = res.data.result
+          //       }
+          //     })
+          //   this.axios.get(process.env.VUE_APP_API + '/messages/' + this.orders[i]._id + '/orderSum')
+          //     .then(res => {
+          //       if (res.data.success) {
+          //         this.orders[i].messages_sum = res.data.result
+          //       }
+          //     })
+          //   this.axios.get(process.env.VUE_APP_API + '/messages/' + this.orders[i]._id + '/orderUserSum')
+          //     .then(res => {
+          //       if (res.data.success) {
+          //         this.orders[i].messages_usersum = res.data.result
+          //       }
+          //     })
+          //   this.axios.get(process.env.VUE_APP_API + '/messages/' + this.orders[i]._id + '/orderWebmasterSum')
+          //     .then(res => {
+          //       if (res.data.success) {
+          //         this.orders[i].messages_othersum = res.data.result
+          //       }
+          //     })
+          // }
         } else {
           this.$swal({
             icon: 'error',
