@@ -101,7 +101,7 @@ export default {
     imagesloaded('.item', () => {
       setTimeout(() => {
         msnry.layout()
-      }, 100)
+      }, 1000)
     })
   },
   mounted () {
