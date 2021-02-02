@@ -1370,11 +1370,28 @@ body::-webkit-scrollbar-thumb {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  border-top: 15px solid rgba(0, 0, 0, 0.8);
+  border-left: 1px solid rgba(0, 0, 0, 0.8);
+  border-radius: 0;
   width: 80vw;
   height: 100%;
 }
 #serive .text {
   width: 400px;
+}
+#serive .text > h1 {
+  color: #677d35;
+}
+#serive .text > h5 {
+  color: #000000;
+  font-weight: 600;
+}
+#serive .text > pre {
+  line-height: 30px;
+  color: #595959;
 }
 #serive .img {
   margin-bottom: 50px;
@@ -1622,6 +1639,14 @@ body::-webkit-scrollbar-thumb {
   }
   #serive .img {
     margin-bottom: 0;
+  }
+  #serive .serive_card {
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-left: 15px solid rgba(0, 0, 0, 0.8);
+    border-top: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 0;
+    width: 80vw;
+    height: 100%;
   }
 
   /* 輪播 */
