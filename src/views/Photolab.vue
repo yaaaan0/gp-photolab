@@ -105,14 +105,14 @@ export default {
       imagesloaded('.item', () => {
         setTimeout(() => {
           msnry.layout()
-        }, 5000)
+        }, 10000)
       })
     } else if (window.name === 'isReload') {
       console.log('页面被刷新')
       imagesloaded('.item', () => {
         setTimeout(() => {
           msnry.layout()
-        }, 1000)
+        }, 500)
       })
     }
   },
