@@ -1350,6 +1350,45 @@ body::-webkit-scrollbar-thumb {
   color: #677d35 !important;
 }
 
+#serive #content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#serive #app {
+  display: flex;
+}
+#serive .v-btn-toggle--group {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: antiquewhite;
+  color: rgba(0, 0, 0, 0.87);
+}
+#serive .serive_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80vw;
+  height: 100%;
+}
+#serive .text {
+  width: 400px;
+}
+#serive .img {
+  margin-bottom: 50px;
+}
+#serive pre {
+  /* margin: 50px 0;
+  letter-spacing: 2px;
+  line-height: 35px;
+  font-size: 15px; */
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: justify;
+}
+
 /* 假字 */
 #word {
   height: 100%;
@@ -1569,6 +1608,20 @@ body::-webkit-scrollbar-thumb {
     position: absolute;
     bottom: 10px;
     right: 180px;
+  }
+  #serive .v-btn-toggle--group {
+    flex-direction: row;
+  }
+  #serive .serive_card {
+    flex-direction: row;
+    width: 80vw;
+    height: 400px;
+  }
+  #serive .text {
+    width: 50%;
+  }
+  #serive .img {
+    margin-bottom: 0;
   }
 
   /* 輪播 */
