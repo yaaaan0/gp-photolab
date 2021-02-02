@@ -1065,7 +1065,7 @@ body::-webkit-scrollbar-thumb {
 #banner .banner_new {
   /* width: 50px !important;
   height: 100px !important; */
-  background-color: antiquewhite !important;
+  background-color: #faebd7 !important;
   box-shadow: none;
   margin: 10px;
   padding: 10px;
@@ -1073,6 +1073,14 @@ body::-webkit-scrollbar-thumb {
 .ddd {
   display: flex;
   margin: 50px;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 /* about-------------------------------------------------  */
 #about .about {
