@@ -1,16 +1,21 @@
 <template lang="pug">
 #photolab
-  v-item-group(v-model="selected" multiple)
+  v-item-group(v-if='isLoading === true' v-model="selected" multiple)
       v-layout(justify-center)
-          div.grid
-            Photoswipe(bubble)
-              .item(v-masonry-tile v-for='(props, index) in imgsArr')
-                  v-card(width='300')
-                    v-img(:src="props.src" v-pswp="props")
-                  v-item(v-slot="{ active, toggle }" :value="props.p_id")
-                    v-form(@submit.prevent="onSubmit(props,active)")
-                      v-btn(v-if="user.account.length > 0 " icon @click="toggle" type="submit")
-                        v-icon(color='rgba(255, 255, 255, 0.7)') {{ active ? 'mdi-heart' : 'mdi-heart-outline' }}
+        div.grid
+          .item(v-masonry-tile v-for='(props, index) in imgsArr')
+            v-skeleton-loader(v-bind='attrs' type='image' width='300')
+  v-item-group(v-if='isLoading === false' v-model="selected" multiple)
+      v-layout(justify-center)
+        div.grid
+          Photoswipe(bubble)
+            .item(v-masonry-tile v-for='(props, index) in imgsArr')
+                v-card(width='300')
+                  v-img(:src="props.src" v-pswp="props")
+                v-item(v-slot="{ active, toggle }" :value="props.p_id")
+                  v-form(@submit.prevent="onSubmit(props,active)")
+                    v-btn(v-if="user.account.length > 0 " icon @click="toggle" type="submit")
+                      v-icon(color='rgba(255, 255, 255, 0.7)') {{ active ? 'mdi-heart' : 'mdi-heart-outline' }}
 </template>
 
 <script>
@@ -24,7 +29,8 @@ export default {
       imgsArr: [],
       props: '',
       selected: [],
-      like: []
+      like: [],
+      isLoading: true
     }
   },
   computed: {
@@ -185,6 +191,9 @@ export default {
           })
         })
     }
+    this.$nextTick(() => {
+      this.isLoading = false
+    })
   }
 }
 </script>
