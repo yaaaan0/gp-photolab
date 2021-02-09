@@ -222,7 +222,7 @@ body::-webkit-scrollbar-thumb {
 }
 #menu .img-2 {
   width: auto;
-  height: 100px;
+  height: 95px;
   margin: 30px 0;
   padding: 10px;
 }
@@ -1450,11 +1450,10 @@ body::-webkit-scrollbar-thumb {
 @media (min-width: 992px) {
   #menu .img-1 {
     width: 100px;
-    height: auto;
+    height: 100px;
 
     margin: 30px;
     display: flex;
-    position: absolute;
   }
 
   #resBtn {
