@@ -1,8 +1,9 @@
 <template lang="pug">
 #menu
-    img.img-1(src='../assets/GPlogo.jpg')
+    //- img.img-1(src='../assets/GPlogo.jpg')
     div.menu
       div.menu-logo
+        img.img-1(src='../assets/GPlogo.jpg')
         img.img-2(src='../assets/logo-2.png')
       div.menu-btn
         v-btn( x-large text @click="overlay = !overlay" ) ｜ MENU ｜
