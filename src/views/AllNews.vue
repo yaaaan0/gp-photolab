@@ -8,11 +8,11 @@
             .card-right
               .article.ma-10
                 pre
-                  h2.logo-color {{item.title}}
+                  h2.logo-color.news_title {{item.title}}
                   p.sm-font.gray {{item.date}}
                 v-divider
                 span {{item.content}} ...
-              v-btn(dark @click='click(item)') READ MORE
+                v-btn(dark @click='click(item)') READ MORE
 </template>
 
 <script>
