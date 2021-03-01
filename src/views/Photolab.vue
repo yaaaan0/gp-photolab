@@ -1,17 +1,31 @@
 <template lang="pug">
 #photolab
-  v-item-group(v-if='isLoading === true' v-model="selected" multiple)
-      v-layout(justify-center)
-        div.grid
-          .item(v-masonry-tile v-for='(props, index) in imgsArr')
-            v-skeleton-loader(v-bind='attrs' type='image' width='300')
+  //- v-item-group(v-if='isLoading === true' v-model="selected" multiple)
+  //-     v-layout(justify-center)
+  //-       div.grid
+  //-         .item(v-masonry-tile v-for='(props, index) in imgsArr')
+  //-           v-skeleton-loader(v-bind='attrs' type='image' width='300')
+  //- v-item-group(v-if='isLoading === false' v-model="selected" multiple)
+  //-     v-layout(justify-center)
+  //-       div.grid
+  //-         Photoswipe(bubble)
+  //-           div(v-masonry="containerId" transition-duration="0.3s" item-selector=".item")
+  //-             .item(v-masonry-tile v-for='(props, index) in imgsArr')
+  //-               v-responsive.overflow-y-auto
+  //-                 v-lazy(v-model="isActive" :options="{threshold: .5}" transition="fade-transition")
+  //-                   v-card(width='300')
+  //-                     v-img(:src="props.src" v-pswp="props")
+  //-                     v-item(v-slot="{ active, toggle }" :value="props.p_id")
+  //-                       v-form(@submit.prevent="onSubmit(props,active)")
+  //-                         v-btn(v-if="user.account.length > 0 " icon @click="toggle" type="submit")
+  //-                           v-icon(color='rgba(255, 255, 255, 0.7)') {{ active ? 'mdi-heart' : 'mdi-heart-outline' }}
   v-item-group(v-if='isLoading === false' v-model="selected" multiple)
-      v-layout(justify-center)
-        div.grid
-          Photoswipe(bubble)
-            .item(v-masonry-tile v-for='(props, index) in imgsArr')
-                v-card(width='300')
-                  v-img(:src="props.src" v-pswp="props")
+    v-layout(justify-center)
+      div.grid
+        Photoswipe(bubble)
+          div(v-masonry="containerId" transition-duration="0.3s" item-selector=".item")
+            .item(v-masonry-tile v-for='(props, index) in imgsArr' :key='index')
+                v-img(:src="props.src" v-pswp="props")
                 v-item(v-slot="{ active, toggle }" :value="props.p_id")
                   v-form(@submit.prevent="onSubmit(props,active)")
                     v-btn(v-if="user.account.length > 0 " icon @click="toggle" type="submit")
@@ -30,7 +44,8 @@ export default {
       props: '',
       selected: [],
       like: [],
-      isLoading: true
+      isLoading: true,
+      isActive: false,
     }
   },
   computed: {
@@ -105,22 +120,32 @@ export default {
       fitWidth: 'true'
     })
 
-    if (window.name === '') {
-      console.log('首次被加载')
-      window.name = 'isReload'
-      imagesloaded('.item', () => {
-        setTimeout(() => {
-          msnry.layout()
-        }, 10000)
-      })
-    } else if (window.name === 'isReload') {
-      console.log('页面被刷新')
-      imagesloaded('.item', () => {
-        setTimeout(() => {
-          msnry.layout()
-        }, 500)
-      })
-    }
+    // imagesloaded('.item', () => {
+    //   msnry.layout()
+    // })
+
+    imagesloaded('.item', () => {
+      setTimeout(() => {
+        msnry.layout()
+      }, 1000)
+    })
+
+    // if (window.name === '') {
+    //   console.log('首次被加载')
+    //   window.name = 'isReload'
+    //   imagesloaded('.item', () => {
+    //     setTimeout(() => {
+    //       msnry.layout()
+    //     }, 10000)
+    //   })
+    // } else if (window.name === 'isReload') {
+    //   console.log('页面被刷新')
+    //   imagesloaded('.item', () => {
+    //     setTimeout(() => {
+    //       msnry.layout()
+    //     }, 500)
+    //   })
+    // }
   },
   mounted () {
     this.axios
