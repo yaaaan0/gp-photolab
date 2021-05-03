@@ -13,7 +13,7 @@
           v-divider
           v-card-text.white--text.text-center
             |{{ new Date().getFullYear() }} —
-            strong XXXXX
+            strong 此網站為學習用途，並無商業使用，如需預約請洽粉絲專頁。
 </template>
 
 <script>
