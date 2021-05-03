@@ -3,7 +3,7 @@
       v-footer(dark padless)
         v-card.indigo.lighten-1.white--text.text-center(flat tile)
           v-card-text
-            v-btn.mx-4.white--text(v-for='icon in icons' :key="icon" icon)
+            v-btn.mx-4.white--text(v-for='(icon, index) in icons' :key="icon" :href="src[index]" target='_blank' icon)
               v-icon(size='24px') {{ icon }}
           v-card-text.white--text.pt-0(icon)
             p
@@ -22,8 +22,14 @@ export default {
     icons: [
       'mdi-facebook',
       'mdi-youtube',
-      'mdi-linkedin',
-      'mdi-instagram'
+      'mdi-camera',
+      'mdi-email-variant'
+    ],
+    src: [
+      'https://www.facebook.com/GPphotolab',
+      'https://www.youtube.com/channel/UCXF-OiGXSYmhgHwcleS2wTw/videos',
+      'https://docs.google.com/forms/d/e/1FAIpQLSe71grT0H-8Sp_P2bxHnRkFgmk5HdkTHFX8-2DDnwX3wyNOZg/viewform',
+      'mailto:gp.fotofaq@gmail.com',
     ]
   })
 }
