@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkphotolab"]=self["webpackChunkphotolab"]||[]).push([[886],{9628:function(l,u,e){e.r(u);var n,t,a=e(1001),o={},p=(0,a.Z)(o,n,t,!1,null,null,null);u["default"]=p.exports}}]);
+//# sourceMappingURL=create.f6615c45.js.map

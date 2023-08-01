@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkphotolab"]=self["webpackChunkphotolab"]||[]).push([[698],{3346:function(n,t,e){e.r(t),e.d(t,{default:function(){return h}});var o=function(){var n=this,t=n._self._c;return t("div",{attrs:{id:"qanda"}},[t("div",{attrs:{id:"content"}},[t("Word")],1),t("NevBtn")],1)},r=[],u=e(8271),a=e(3908),l=e(2062),s=e(6997),c=e(8867),d=e(9880),i={name:"Q&A",components:{Menu:u.Z,ResBtn:a.Z,Word:l.Z,Footer:s.Z,NevBtn:c.Z,TopBtn:d.Z}},p=i,f=e(1001),Z=(0,f.Z)(p,o,r,!1,null,null,null),h=Z.exports}}]);
+//# sourceMappingURL=q&a.b01e3e3d.js.map

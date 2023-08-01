@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkphotolab"]=self["webpackChunkphotolab"]||[]).push([[611],{6889:function(e,t,n){n.r(t),n.d(t,{default:function(){return o}});var r=function(){var e=this,t=e._self._c;return t("div",{attrs:{id:"allOrders"}},[t("vue-page-transition",{attrs:{name:"fade-in-up"}},[t("router-view")],1)],1)},l=[],u={name:"AllOrders"},a=u,s=n(1001),i=(0,s.Z)(a,r,l,!1,null,null,null),o=i.exports}}]);
+//# sourceMappingURL=allOrders.561315c6.js.map
